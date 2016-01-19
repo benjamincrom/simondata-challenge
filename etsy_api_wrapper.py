@@ -50,8 +50,6 @@ class EtsyAPIWrapper(object):
 
     def fetch_listing_titles_and_desc(self, shop_id):
         """ TODO(bcrom) """
-        import pdb
-        pdb.set_trace()
         response_dict = self.execute_api_query(shop_id)
         results_list = response_dict['results']
         for offset in range(100, response_dict['count'], 100):
