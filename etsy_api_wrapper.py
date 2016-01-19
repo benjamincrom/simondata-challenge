@@ -48,17 +48,18 @@ class EtsyAPIWrapper(object):
         response.raise_for_status()
         return response.json()
 
-    def fetch_listing_titles_and_desc(self, shop_id):
+    @classmethod
+    def fetch_listing_titles_and_desc(cls, shop_id):
         """
         Fetch all listings from a given shop.  Given a shop_id, return
         list of titles and descriptions of all items for that shop_id.
         This method will automatically paginate with 100 items per request.
         """
-        response_dict = self.execute_api_query(shop_id)
+        response_dict = cls.execute_api_query(shop_id)
         results_list = response_dict['results']
         for offset in range(100, response_dict['count'], 100):
             # Paginate with 100 items/page and update dictionary
-            this_response_dict = self.execute_api_query(shop_id, offset)
+            this_response_dict = cls.execute_api_query(shop_id, offset)
             results_list += this_response_dict['results']
 
         return results_list
