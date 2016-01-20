@@ -8,6 +8,10 @@ app.py -- iterate through list of shops and for each shop return a counter
 import multiprocessing
 from flask import render_template, Flask, request
 
+# Load environment variables from .env
+from settings import read_env
+read_env()
+
 import word_counter
 import etsy_api_wrapper
 
