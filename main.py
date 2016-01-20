@@ -1,5 +1,5 @@
 import word_counter
-from etsy_api_wrapper import EtsyAPIWrapper
+import etsy_api_wrapper
 
 SHOP_LIST = [
     'DesignWithinYou',
@@ -25,5 +25,5 @@ SHOP_LIST = [
 ]
 
 for shop in SHOP_LIST:
-    input_dict_list = EtsyAPIWrapper.fetch_listing_titles_and_desc(shop)
+    input_dict_list = etsy_api_wrapper.fetch_listing_titles_and_desc(shop)
     print word_counter.pool_handler(input_dict_list)
