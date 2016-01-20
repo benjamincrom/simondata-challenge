@@ -6,9 +6,7 @@ etsy_api_wrapper.py -- Wrap Etsy API functions so that when given a list of
                        How to run this module from command line:
                        $ python etsy_api_wrapper.py [SHOP_ID]
 """
-import json
 import os
-import sys
 import requests
 
 ETSY_API_URL_ROOT = 'https://openapi.etsy.com/v2/'

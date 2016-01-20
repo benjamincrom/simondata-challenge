@@ -13,6 +13,7 @@ from collections import Counter
 
 WORD_SEARCH_REGEX = re.compile(r'\w+')
 PROCESSOR_POOL_SIZE = 8
+NUM_COMMON_WORDS = 5
 IGNORE_LIST = ['to', 'are', 'the', 'and', 'in', 'is', 'if', 'your', 'my',
                'at', 'this', '__________________________________________',
                'for', 'quot', 'you', 'me', 'be', 'or', 'on', 'a', 'with',
@@ -56,4 +57,4 @@ def pool_handler(input_dict_list):
     for this_counter in counter_list:
         counter_sum += this_counter
 
-    return remove_common_words(counter_sum).most_common(5)
+    return remove_common_words(counter_sum).most_common(NUM_COMMON_WORDS)

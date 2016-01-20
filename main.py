@@ -1,3 +1,8 @@
+"""
+main.py -- iterate through list of shops and for each shop return a counter
+           of the five most commonly used words in the titles and descriptions
+           of each item in that shop.
+"""
 import word_counter
 import etsy_api_wrapper
 
