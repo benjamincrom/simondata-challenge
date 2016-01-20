@@ -45,6 +45,6 @@ def pool_handler(input_dict_list):
     for this_counter in counter_list:
         counter_sum = counter_sum + this_counter
 
-    return remove_common_words(counter_sum)
+    return remove_common_words(counter_sum).most_common(5)
 
 print pool_handler(INPUT_DICT_LIST)
