@@ -1,6 +1,5 @@
 """ TODO(bcrom) """
 import re
-import json
 import multiprocessing
 from collections import Counter
 
