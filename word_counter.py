@@ -3,10 +3,8 @@ import re
 import multiprocessing
 from collections import Counter
 
-from etsy_api_wrapper import EtsyAPIWrapper
 
 WORD_SEARCH_REGEX = re.compile(r'\w+')
-INPUT_DICT_LIST = EtsyAPIWrapper.fetch_listing_titles_and_desc('DesignWithinYou')
 
 def count_words_in_str(input_str):
     word_list = WORD_SEARCH_REGEX.findall(input_str.lower())
@@ -46,5 +44,3 @@ def pool_handler(input_dict_list):
         counter_sum = counter_sum + this_counter
 
     return remove_common_words(counter_sum).most_common(5)
-
-print pool_handler(INPUT_DICT_LIST)
