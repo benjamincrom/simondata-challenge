@@ -8,7 +8,7 @@ import multiprocessing
 import word_counter
 import etsy_api_wrapper
 
-DEFAULT_PROCESS_POOL_SIZE = 8
+DEFAULT_PROCESS_POOL_SIZE = 4
 
 SHOP_LIST = [
     'DesignWithinYou',
