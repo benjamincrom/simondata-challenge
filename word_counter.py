@@ -19,11 +19,6 @@ IGNORE_LIST = ['to', 'are', 'the', 'and', 'in', 'is', 'if', 'your', 'my',
                'for', 'quot', 'you', 'me', 'be', 'or', 'on', 'a', 'with',
                'of', 'so', 'it', 'http', 'https', 'com', 'www', 'i', 'we']
 
-def count_words_in_str(input_str):
-    """ Breaks string into list of words then loads them into a Counter """
-    word_list = WORD_SEARCH_REGEX.findall(input_str.lower())
-    return Counter(word_list)
-
 def remove_common_words(input_counter):
     """ Removes common words and digits from a Counter """
     for word in list(input_counter):
@@ -31,6 +26,11 @@ def remove_common_words(input_counter):
             del input_counter[word]
 
     return input_counter
+
+def count_words_in_str(input_str):
+    """ Breaks string into list of words then loads them into a Counter """
+    word_list = WORD_SEARCH_REGEX.findall(input_str.lower())
+    return Counter(word_list)
 
 def count_words_in_results_dict(input_dict):
     """
