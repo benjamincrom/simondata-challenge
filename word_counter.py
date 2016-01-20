@@ -13,11 +13,11 @@ def count_words_in_str(input_str):
     word_list = WORD_SEARCH_REGEX.findall(input_str.lower())
     return Counter(word_list)
 
-
 def remove_common_words(input_counter):
     IGNORE_LIST = ['to', 'are', 'the', 'and', 'in', 'is', 'if', 'your', 'my',
                    'at', 'this', '__________________________________________',
-                   'for', 'quot', 'you', 'me', 'be', 'or', 'on', 'a']
+                   'for', 'quot', 'you', 'me', 'be', 'or', 'on', 'a', 'with',
+                   'of', 'so', 'it']
 
     for word in list(input_counter):
         if word in IGNORE_LIST:
