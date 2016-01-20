@@ -39,6 +39,10 @@ SHOP_LIST = [
 app = Flask(__name__)
 
 def process_shop_list(sanitized_shop_list):
+    """
+    Partition list of shops over process pool and let mapping function fetch
+    data for each shop
+    """
     process_pool = multiprocessing.Pool(DEFAULT_PROCESS_POOL_SIZE)
     shop_tuple_list = process_pool.map(etsy_api_wrapper.fetch_listing_info,
                                        sanitized_shop_list)
