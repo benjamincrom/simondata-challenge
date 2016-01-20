@@ -54,8 +54,5 @@ def pool_handler(input_dict_list):
     counter_list = process_pool.map(count_words_in_results_dict,
                                     input_dict_list)
 
-    counter_sum = Counter()
-    for this_counter in counter_list:
-        counter_sum += this_counter
-
+    counter_sum = sum(counter_list, Counter())
     return remove_common_words(counter_sum).most_common(NUM_COMMON_WORDS)
