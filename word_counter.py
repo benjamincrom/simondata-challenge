@@ -2,7 +2,7 @@
 word_counter.py -- Given a list of formatted dictionaries from the
                    etsy_api_wrapper module, count the occurrences of all
                    words in each dictionary, then sum these counts together.
-                   Return the top five final word counts for a given list. 
+                   Return the top five final word counts for a given list.
 
                    Note: uses the multiprocessing library for parallel
                    execution
