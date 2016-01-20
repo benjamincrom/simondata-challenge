@@ -13,29 +13,6 @@ import etsy_api_wrapper
 
 DEFAULT_PROCESS_POOL_SIZE = 4
 
-SHOP_LIST = [
-    'DesignWithinYou',
-    'HeritageWedding',
-    'JoyfulMoose',
-    'Vanijja',
-    'forlovepolkadots',
-    'ThePersonalWeddingCo',
-    'SomethingYouGifts',
-    'PersonalizedGiftsbyJ',
-    'CreationsByAngel',
-    'kutekiddo',
-    'SouthernTradeMark',
-    'MikesRevivals',
-    'JuniperAndLace',
-    'navesdesign',
-    'sashesforlove',
-    'EnchantedBrideUSA',
-    'PersonalizedPoshy',
-    'keeplifesimpledesign',
-    'WearableArtz',
-    'DavieandChiyo',
-]
-
 app = Flask(__name__)
 
 def process_shop_list(sanitized_shop_list):
