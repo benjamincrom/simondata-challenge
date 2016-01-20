@@ -4,7 +4,6 @@ word_counter.py -- Run all unit tests for word_counter.py
 Run from command line:
 $ py.test test_word_counter.py
 """
-import pytest
 from collections import Counter
 
 import word_counter
