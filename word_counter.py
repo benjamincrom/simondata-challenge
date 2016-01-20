@@ -16,7 +16,7 @@ PROCESSOR_POOL_SIZE = 8
 IGNORE_LIST = ['to', 'are', 'the', 'and', 'in', 'is', 'if', 'your', 'my',
                'at', 'this', '__________________________________________',
                'for', 'quot', 'you', 'me', 'be', 'or', 'on', 'a', 'with',
-               'of', 'so', 'it', 'http', 'https', 'com', 'www', 'i']
+               'of', 'so', 'it', 'http', 'https', 'com', 'www', 'i', 'we']
 
 def count_words_in_str(input_str):
     """ Breaks string into list of words then loads them into a Counter """
