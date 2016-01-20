@@ -7,6 +7,7 @@ etsy_api_wrapper.py -- Wrap Etsy API functions so that when given a list of
                        $ python etsy_api_wrapper.py [SHOP_ID]
 """
 import os
+import time
 import requests
 
 ETSY_API_URL_ROOT = 'https://openapi.etsy.com/v2'
@@ -39,6 +40,7 @@ def execute_api_query(shop_id, offset=0):
     remaining_retries = QUERY_RETRIES
     while (response.status_code == 400) and (remaining_retries > 0):
         # Etsy REST API intermittently returns 400 errors
+        time.sleep(1)
         response = requests.get(target_api_url, params=query_parameters)
         remaining_retries -= 1
 

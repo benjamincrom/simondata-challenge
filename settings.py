@@ -14,4 +14,4 @@ def read_env():
         match = re.match(r'\A([A-Za-z_0-9]+)=(.*)\Z', line)
         if match:
             key, val = match.group(1).strip(), match.group(2).strip()
-            os.environ.setdefault(key, val)
+            os.environ.setdefault(key, val.replace('"', '')) # Strip quotes
