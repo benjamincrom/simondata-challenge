@@ -16,10 +16,10 @@ def remove_common_words(input_counter):
     IGNORE_LIST = ['to', 'are', 'the', 'and', 'in', 'is', 'if', 'your', 'my',
                    'at', 'this', '__________________________________________',
                    'for', 'quot', 'you', 'me', 'be', 'or', 'on', 'a', 'with',
-                   'of', 'so', 'it']
+                   'of', 'so', 'it', 'http', 'https', 'com', 'www']
 
     for word in list(input_counter):
-        if word in IGNORE_LIST:
+        if word in IGNORE_LIST or word.isdigit():
             del input_counter[word]
 
     return input_counter
@@ -38,13 +38,13 @@ def count_words_in_results_dict(input_dict):
 def pool_worker(input_dict):
     return count_words_in_results_dict(input_dict)
 
-def pool_handler():
+def pool_handler(input_dict_list):
     process_pool = multiprocessing.Pool(8)
-    counter_list = process_pool.map(pool_worker, INPUT_DICT_LIST)
+    counter_list = process_pool.map(pool_worker, input_dict_list)
     counter_sum = Counter()
     for this_counter in counter_list:
         counter_sum = counter_sum + this_counter
 
-    print remove_common_words(counter_sum)
+    return remove_common_words(counter_sum)
 
-pool_handler()
+print pool_handler(INPUT_DICT_LIST)
