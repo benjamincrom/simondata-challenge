@@ -12,7 +12,7 @@ import multiprocessing
 from collections import Counter
 
 WORD_SEARCH_REGEX = re.compile(r'\w+')
-PROCESSOR_POOL_SIZE = 8
+DEFAULT_PROCESS_POOL_SIZE = 4
 NUM_COMMON_WORDS = 5
 IGNORE_LIST = ['to', 'are', 'the', 'and', 'in', 'is', 'if', 'your', 'my',
                'at', 'this', '__________________________________________',
@@ -42,6 +42,7 @@ def count_words_in_results_dict(input_dict):
         input_dict['title'].encode('ascii', 'ignore'),
         input_dict['description'].encode('ascii', 'ignore')
     )
+
     return count_words_in_str(combined_str)
 
 def pool_handler(input_dict_list):
@@ -49,7 +50,7 @@ def pool_handler(input_dict_list):
     Create a multiprocessing pool and have it process the list of dictionaries
     from etsy_api_wrapper.  Remove the common words from the returned Counter.
     """
-    process_pool = multiprocessing.Pool(PROCESSOR_POOL_SIZE)
+    process_pool = multiprocessing.Pool(DEFAULT_PROCESS_POOL_SIZE)
     counter_list = process_pool.map(count_words_in_results_dict,
                                     input_dict_list)
 

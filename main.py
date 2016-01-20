@@ -33,10 +33,15 @@ SHOP_LIST = [
     'DavieandChiyo',
 ]
 
-process_pool = multiprocessing.Pool(DEFAULT_PROCESS_POOL_SIZE)
-shop_info_list = process_pool.map(etsy_api_wrapper.fetch_listing_info,
-                                  SHOP_LIST)
+def run():
+    """
+    Fetch info for list of shops then analyze that info to get top five terms
+    for each shop.
+    """
+    process_pool = multiprocessing.Pool(DEFAULT_PROCESS_POOL_SIZE)
+    shop_info_list = process_pool.map(etsy_api_wrapper.fetch_listing_info,
+                                      SHOP_LIST)
 
-for shop_tuple in shop_info_list:
-    print "{} -- {}".format(shop_tuple[0],
-                            word_counter.pool_handler(shop_tuple[1]))
+    for shop_tuple in shop_info_list:
+        print "{} -- {}".format(shop_tuple[0],
+                                word_counter.pool_handler(shop_tuple[1]))
