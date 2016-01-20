@@ -44,6 +44,10 @@ def count_words_in_results_dict(input_dict):
     return count_words_in_str(combined_str)
 
 def pool_handler(input_dict_list):
+    """
+    Create a multiprocessing pool and have it process the list of dictionaries
+    from etsy_api_wrapper.  Remove the common words from the returned Counter.
+    """
     process_pool = multiprocessing.Pool(PROCESSOR_POOL_SIZE)
     counter_list = process_pool.map(count_words_in_results_dict,
                                     input_dict_list)
