@@ -38,7 +38,7 @@ def execute_api_query(shop_id, offset=0):
     response.raise_for_status()
     return response.json()
 
-def fetch_listing_titles_and_desc(shop_id):
+def fetch_listing_info(shop_id):
     """
     Fetch all listings from a given shop.  Given a shop_id, return
     list of titles and descriptions of all items for that shop_id.
@@ -50,4 +50,4 @@ def fetch_listing_titles_and_desc(shop_id):
         this_response_dict = execute_api_query(shop_id, offset)
         results_list += this_response_dict['results']
 
-    return results_list
+    return (shop_id, results_list)
