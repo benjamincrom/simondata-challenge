@@ -40,6 +40,7 @@ def index():
         result_list = [(shop_tuple[0], word_counter.pool_handler(shop_tuple[1]))
                        for shop_tuple in shop_tuple_list]
 
+    print result_list
     return render_template('index.html', results_list=result_list)
 
 if __name__ == '__main__':
