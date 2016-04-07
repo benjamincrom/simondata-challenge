@@ -1,10 +1,10 @@
-"""
+'''
 app.py -- iterate through list of shops and for each shop return a counter
           of the five most commonly used words in the titles and descriptions
           of each item in that shop.
 
           Output results via Flask web template.
-"""
+'''
 import multiprocessing
 from flask import render_template, Flask, request
 
@@ -20,10 +20,10 @@ DEFAULT_PROCESS_POOL_SIZE = 4
 app = Flask(__name__)
 
 def process_shop_list(sanitized_shop_list):
-    """
+    '''
     Partition list of shops over process pool and let mapping function fetch
     data for each shop
-    """
+    '''
     process_pool = multiprocessing.Pool(DEFAULT_PROCESS_POOL_SIZE)
     shop_tuple_list = process_pool.map(etsy_api_wrapper.fetch_listing_info,
                                        sanitized_shop_list)
@@ -31,10 +31,10 @@ def process_shop_list(sanitized_shop_list):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    """
+    '''
     Fetch info for list of shops then analyze that info to get top five terms
     for each shop.
-    """
+    '''
     shop_list = []
     result_list = []
     if 'search' in request.args and request.args['search'] != '':
